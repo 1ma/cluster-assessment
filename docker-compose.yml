@@ -1,0 +1,15 @@
+version: '2'
+services:
+  webserver:
+    image: nginx:1.9
+    networks:
+      - app_net
+  mysql:
+    image: mysql:5.7
+    networks:
+      - app_net
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+networks:
+  app_net:
+    driver: overlay
